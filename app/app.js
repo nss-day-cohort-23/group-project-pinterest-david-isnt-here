@@ -43,7 +43,7 @@ angular.module("PinterestApp", ["ngRoute"])
     
 })
 
-.run((FBCreds, AuthFactory) => {
+.run(FBCreds => {
   firebase.initializeApp(FBCreds);
 });
 
