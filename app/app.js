@@ -42,14 +42,7 @@ angular.module("PinterestApp", ["ngRoute"])
     .otherwise("/login");
     
 })
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider
-    .when('/auth', {
-      templateUrl: 'partials/loginRegister.html',
-      controller: 'AuthCtrl'
-    })
-    .otherwise('/auth');
-}])
+
 .run(function(FBCreds) {
   firebase.initializeApp(FBCreds);
 });
