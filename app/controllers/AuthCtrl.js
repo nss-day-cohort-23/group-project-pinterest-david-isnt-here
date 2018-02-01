@@ -13,3 +13,8 @@ angular.module("PinterestApp").controller("AuthCtrl", function($scope, AuthFacto
     .then(userInfoAfterLogin => console.log("You're logged in", userInfoAfterLogin));
   };
 
+  $scope.logMeOut = () => {
+    AuthFactory.logout()
+    .then(() => $scope.auth = {});
+  };
+});
