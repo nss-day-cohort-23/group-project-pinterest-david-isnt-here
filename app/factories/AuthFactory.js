@@ -31,6 +31,16 @@ angular.module("PinterestApp").factory("AuthFactory", function ($q, $http, $root
     return firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
   };
 
-  return { getUser, logout, register, login };
+  let postUser = user => {
+    return $q((resolve, reject) => {
+      $http.patch(`${FBCreds.DBurl}/users/${user.uid}.json`, JSON.stringify({
+        "uid": user.uid
+      }))
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  };
+
+  return { getUser, logout, register, login, postUser };
 
 });
