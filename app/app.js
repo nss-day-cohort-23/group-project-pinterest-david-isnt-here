@@ -16,7 +16,7 @@ angular.module("PinterestApp", ["ngRoute"])
         controller: "ViewAllBoardsCtrl"
     })
     .when("/board/new", {
-        templateUrl: "partials/addBoard.html",
+        templateUrl: "partials/editAddBoard.html",
         controller: "NewBoardCtrl"
     })
     .when ("/board/:bid", {
@@ -24,11 +24,11 @@ angular.module("PinterestApp", ["ngRoute"])
         controller: "ViewBoardCtrl"
     })
     .when("/board/:bid/edit", {
-        templateUrl: "partials/editBoard.html",
+        templateUrl: "partials/editAddBoard.html",
         controller: "EditBoardCtrl"
     })
     .when ("/board/:bid/pin/:pid/new", {
-        templateUrl: "partials/addPin.html",
+        templateUrl: "partials/editAddPin.html",
         controller: "NewPinCtrl"
     })
     .when ("/board/:bid/pin/:pid", {
@@ -36,7 +36,7 @@ angular.module("PinterestApp", ["ngRoute"])
         controller: "ViewPinCtrl"
     })
     .when ("/board/:bid/pin/:pid/edit", {
-        templateUrl: "editPin.html",
+        templateUrl: "editAddPin.html",
         controller: "EditPinCtrl"
     })
     .otherwise("/login");
