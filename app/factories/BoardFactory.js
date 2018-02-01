@@ -4,7 +4,7 @@ angular.module("PinterestApp").factory("BoardFactory", function($q, $http, FBCre
 
     let getBoardData = () => {
         return $q(function(resolve, reject){
-            $http.get(`${FBCreds}boards.json`)
+            $http.get(`${FBCreds.DBurl}/boards.json`)
             .then(
                 (data) => {
                     resolve(data);
@@ -17,7 +17,7 @@ angular.module("PinterestApp").factory("BoardFactory", function($q, $http, FBCre
 
     let addBoard = (board) => {
         return $q(function(resolve, reject){
-            $http.post(`${FBCreds}boards.json`, JSON.stringify(board))
+            $http.post(`${FBCreds.DBurl}/boards.json`, JSON.stringify(board))
             .then (
                 (data) => {
                     resolve(data);
@@ -30,7 +30,7 @@ angular.module("PinterestApp").factory("BoardFactory", function($q, $http, FBCre
 
     let deleteBoard = () => {
         return $q(function(resolve, reject){
-            $http.delete(`${FBCreds}boards.json`)
+            $http.delete(`${FBCreds.DBurl}/boards.json`)
             .then (
                 (data) => {
                     resolve(data);
@@ -43,7 +43,7 @@ angular.module("PinterestApp").factory("BoardFactory", function($q, $http, FBCre
 
     let editBoard = () => {
         return $q(function(resolve, reject){
-            $http.put(`${FBCreds}boards.json`)
+            $http.put(`${FBCreds.DBurl}/boards.json`)
             .then (
                 (data) => {
                     resolve(data);

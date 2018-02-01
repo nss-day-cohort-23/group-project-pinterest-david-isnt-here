@@ -4,7 +4,7 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
 
     let getPinData = () => {
         return $q(function (resolve, reject) {
-            $http.get(`${FBCreds}pins.json`)
+            $http.get(`${FBCreds.DBurl}/pins.json`)
                 .then(
                 (data) => {
                     resolve(data);
@@ -17,7 +17,7 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
 
     let addPin = (pin) => {
         return $q(function (resolve, reject) {
-            $http.post(`${FBCreds}pins.json`, JSON.stringify(pin))
+            $http.post(`${FBCreds.DBurl}/pins.json`, JSON.stringify(pin))
                 .then(
                 (data) => {
                     resolve(data);
@@ -30,7 +30,7 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
 
     let deletePin = () => {
         return $q(function (resolve, reject) {
-            $http.delete(`${FBCreds}pins.json`)
+            $http.delete(`${FBCreds.DBurl}/pins.json`)
                 .then(
                 (data) => {
                     resolve(data);
@@ -43,7 +43,7 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
 
     let editPin = () => {
         return $q(function (resolve, reject) {
-            $http.put(`${FBCreds}pins.json`)
+            $http.put(`${FBCreds.DBurl}/pins.json`)
                 .then(
                 (data) => {
                     resolve(data);

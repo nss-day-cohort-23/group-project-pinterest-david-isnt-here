@@ -1,7 +1,6 @@
 "use strict";
 
 angular.module("PinterestApp", ["ngRoute"])
-.constant("FBUrl", "pinteresting-53274.firebaseapp.com")
 
 .config($routeProvider => {
     $routeProvider
