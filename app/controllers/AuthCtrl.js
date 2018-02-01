@@ -6,7 +6,7 @@ angular.module("PinterestApp").controller("AuthCtrl", function ($scope, AuthFact
   AuthFactory.getUser()
     .then(user => {
       $location.path("/");
-    }).catch();
+    }).catch(err => {});
 
   $scope.register = () => {
     AuthFactory.register($scope.auth)
