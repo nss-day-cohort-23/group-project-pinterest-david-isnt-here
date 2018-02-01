@@ -45,9 +45,6 @@ angular.module("PinterestApp", ["ngRoute"])
 
 .run((FBCreds, AuthFactory) => {
   firebase.initializeApp(FBCreds);
-  AuthFactory.isAuthenticated().then(user => {
-      console.log(user);
-  }).catch(err =>  console.log(err));
 });
 
 

@@ -10,17 +10,9 @@ angular.module("PinterestApp").factory("AuthFactory", function ($q, $http, $root
         if (user) {
           resolve(user);
         } else {
-          reject();
+          reject("No user");
         }
       });
-    });
-  };
-
-  //Firebase: Determine if user is authenticated.
-  let isAuthenticated = () => {
-    return $q((resolve, reject) => {
-      getUser()
-        .then(response => resolve(response));
     });
   };
 
@@ -35,10 +27,10 @@ angular.module("PinterestApp").factory("AuthFactory", function ($q, $http, $root
   };
 
   //Firebase: Register a new user with email and password
-  let registerWithEmail = (user) => {
+  let register = (user) => {
     return firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
   };
 
-  return { isAuthenticated, getUser, logout, registerWithEmail, login };
+  return { getUser, logout, register, login };
 
 });
