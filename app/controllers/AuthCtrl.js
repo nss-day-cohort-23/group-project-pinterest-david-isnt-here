@@ -3,23 +3,13 @@
 angular.module("PinterestApp").controller("AuthCtrl", function($scope, AuthFactory){
   $scope.auth = {};
 
-  $scope.registerUser = function() {
+  $scope.registerUser = () => {
     AuthFactory.registerWithEmail($scope.auth)
-    .then(function(userInfoFromFB) {
-      console.log(userInfoFromFB);
-      // log user in here, by passing userInfoFromFB into login method
-    });
+    .then(userInfoFromFB => $scope.logMeIn(userInfoFromFB));
   };
 
-  $scope.logMeIn = function(){
+  $scope.logMeIn = () => {
     AuthFactory.login($scope.auth)
-    .then(function(userInfoAfterLogin){
-        console.log('didLogin',userInfoAfterLogin);
-        $scope.login = {};
-        $scope.register = {};
-        // $location.url("/songs/list");
-      });
-    };
+    .then(userInfoAfterLogin => console.log("You're logged in", userInfoAfterLogin));
+  };
 
-
-});
