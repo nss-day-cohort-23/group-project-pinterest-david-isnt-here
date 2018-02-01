@@ -19,7 +19,7 @@ angular.module("PinterestApp").factory("AuthFactory", function($q, $http, $rootS
   };
 
 //Firebase: Use input credentials to authenticate user.
-  let authenticate = (credentials) => {
+  let login = (credentials) => {
     return firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password);
   };
 
@@ -28,7 +28,7 @@ angular.module("PinterestApp").factory("AuthFactory", function($q, $http, $rootS
     return firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
   };
 
-  return {isAuthenticated, getUser, logout, registerWithEmail, authenticate};
+  return {isAuthenticated, getUser, logout, registerWithEmail, login};
 
 
 
