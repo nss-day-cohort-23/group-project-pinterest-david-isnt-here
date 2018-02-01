@@ -3,14 +3,25 @@
 angular.module("PinterestApp").factory("AuthFactory", function ($q, $http, $rootScope, FBCreds) {
   let currentUserData = null;
 
-  //Firebase: Determine if user is authenticated.
-  let isAuthenticated = () => {
-    return firebase.auth().currentUser ? true : false;
-  };
-
   //Firebase: Return email, UID for user that is currently logged in.
   let getUser = () => {
-    return firebase.auth().currentUser;
+    return $q((resolve, reject) => {
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          resolve(user);
+        } else {
+          reject();
+        }
+      });
+    });
+  };
+
+  //Firebase: Determine if user is authenticated.
+  let isAuthenticated = () => {
+    return $q((resolve, reject) => {
+      getUser()
+        .then(response => resolve(response));
+    });
   };
 
   // Kills browser cookie with firebase credentials
