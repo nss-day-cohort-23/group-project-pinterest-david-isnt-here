@@ -11,9 +11,9 @@ angular.module("PinterestApp").factory("BoardFactory", function($q, $http, FBCre
                 })
                 .catch((err) => {
                     reject(err);
-                })
+                });
         });
-    }
+    };
 
     let addBoard = (board) => {
         return $q(function(resolve, reject){
@@ -24,9 +24,9 @@ angular.module("PinterestApp").factory("BoardFactory", function($q, $http, FBCre
                 })
                 .catch((err) => {
                     reject(err);
-                })
+                });
         });
-    }
+    };
 
     let deleteBoard = () => {
         return $q(function(resolve, reject){
@@ -37,9 +37,9 @@ angular.module("PinterestApp").factory("BoardFactory", function($q, $http, FBCre
                 })
                 .catch((err) => {
                     reject(err);
-                })
+                });
         });
-    }
+    };
 
     let editBoard = () => {
         return $q(function(resolve, reject){
@@ -50,8 +50,8 @@ angular.module("PinterestApp").factory("BoardFactory", function($q, $http, FBCre
                 })
                 .catch((err) => {
                     reject(err);
-                })
+                });
         });
-    }
+    };
     return { getBoardData, addBoard, deleteBoard, editBoard };
 });

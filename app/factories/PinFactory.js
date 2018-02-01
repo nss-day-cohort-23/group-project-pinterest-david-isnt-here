@@ -11,9 +11,9 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
                 })
                 .catch((err) => {
                     reject(err);
-                })
+                });
         });
-    }
+    };
 
     let addPin = (pin) => {
         return $q(function (resolve, reject) {
@@ -24,9 +24,9 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
                 })
                 .catch((err) => {
                     reject(err);
-                })
+                });
         });
-    }
+    };
 
     let deletePin = () => {
         return $q(function (resolve, reject) {
@@ -37,9 +37,9 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
                 })
                 .catch((err) => {
                     reject(err);
-                })
+                });
         });
-    }
+    };
 
     let editPin = () => {
         return $q(function (resolve, reject) {
@@ -50,8 +50,8 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
                 })
                 .catch((err) => {
                     reject(err);
-                })
+                });
         });
-    }
+    };
     return { getPinData, addPin, deletePin, editPin };
 });

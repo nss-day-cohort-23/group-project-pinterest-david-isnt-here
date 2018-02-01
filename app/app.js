@@ -39,8 +39,8 @@ angular.module("PinterestApp", ["ngRoute"])
         templateUrl: "editPin.html",
         controller: "EditPinCtrl"
     })
-    .otherwise("/login")
+    .otherwise("/login");
     
-})
+});
 
 
