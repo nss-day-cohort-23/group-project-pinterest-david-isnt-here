@@ -3,7 +3,7 @@
 angular.module("PinterestApp").controller("AuthCtrl", function ($scope, AuthFactory) {
   $scope.auth = {};
 
-  $scope.registerUser = () => {
+  $scope.register = () => {
     AuthFactory.registerWithEmail($scope.auth)
       .then(user => $scope.login(user));
   };
