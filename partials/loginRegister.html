@@ -6,20 +6,22 @@
 
 <form id="login" class="row card-panel">
   <div class="input-field col s12">
-      <input id="email" type="text" class="validate" ng-model="auth.email">
-      <label for="email">Email</label>
+    <input id="email" type="text" class="validate" ng-model="auth.email">
+    <label for="email">Email</label>
   </div>
   <div class="input-field col s12">
-      <input id="password" type="password" class="validate" ng-model="auth.password">
-      <label for="password">Password</label>
+    <input id="password" type="password" class="validate" ng-model="auth.password">
+    <label for="password">Password</label>
   </div>
   <div class="col s12" id="buttons">
-      <button class="btn waves-effect waves-light" type="submit" name="register" ng-click="registerUser()">Register
-          <i class="material-icons right">add_circle</i>
-      </button>
-      <button class="btn waves-effect waves-light" type="submit" name="login" ng-click="logMeIn()">Log in
-          <i class="material-icons right">check_circle</i>
-      </button>
-      <button class="btn waves-effect waves-light" type="submit" name="logout" ng-click="logMeOut()">Log out <i class="material-icons right"></i></button>
+    <button class="btn waves-effect waves-light" type="submit" name="register" ng-click="registerUser()">Register
+      <i class="material-icons right">add_circle</i>
+    </button>
+    <button class="btn waves-effect waves-light" type="submit" name="login" ng-click="login()">Log in
+      <i class="material-icons right">check_circle</i>
+    </button>
+    <button class="btn waves-effect waves-light" type="submit" name="logout" ng-click="logout()">Log out
+      <i class="material-icons right"></i>
+    </button>
   </div>
 </form>

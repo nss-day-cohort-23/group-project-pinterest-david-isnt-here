@@ -1,20 +1,20 @@
 "use strict";
 
-angular.module("PinterestApp").controller("AuthCtrl", function($scope, AuthFactory){
+angular.module("PinterestApp").controller("AuthCtrl", function ($scope, AuthFactory) {
   $scope.auth = {};
 
   $scope.registerUser = () => {
     AuthFactory.registerWithEmail($scope.auth)
-    .then(userInfoFromFB => $scope.logMeIn(userInfoFromFB));
+      .then(user => $scope.login(user));
   };
 
-  $scope.logMeIn = () => {
+  $scope.login = () => {
     AuthFactory.login($scope.auth)
-    .then(userInfoAfterLogin => console.log("You're logged in", userInfoAfterLogin));
+      .then(user => console.log(user));
   };
 
-  $scope.logMeOut = () => {
+  $scope.logout = () => {
     AuthFactory.logout()
-    .then(() => $scope.auth = {});
+      .then(() => $scope.auth = {});
   };
 });
