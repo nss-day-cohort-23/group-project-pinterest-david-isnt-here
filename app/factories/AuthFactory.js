@@ -15,7 +15,7 @@ angular.module("PinterestApp").factory("AuthFactory", function($q, $http, $rootS
 
 // Kills browser cookie with firebase credentials
   let logout = () => {
-    firebase.auth().signOut();
+    return firebase.auth().signOut();
   };
 
 //Firebase: Use input credentials to authenticate user.
