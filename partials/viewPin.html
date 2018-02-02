@@ -1,5 +1,6 @@
 <a ng-href="#!/board/{{pin.boardid}}">BACK TO ALL PINS</a>
 <div class="card-panel">
+  <button type="button" name="delete" ng-click="delete(pin.id)">X</button>
   <h3>{{pin.title}}</h3>
   <img ng-src={{pin.url}}>
   <button>
