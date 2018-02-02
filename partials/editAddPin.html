@@ -2,14 +2,14 @@
   <!-- TODO: Need a back button so user can return to board if changed their mind
   about editing/adding. This will be a conditional. IF editing a pin, return to
   viewPin.html. IF adding a pin, return to viewBoard.html -->
-  <h1 ng-show="newPin.title">{{title}}</h1>
+  <h1 ng-show="pin.title">Editing "{{pin.title}}"</h1>
   <div class="form-group">
     <label>Title of new pin</label>
-    <input type="text" class="form-control" ng-model="newPin.title" placeholder="Title"/>
+    <input type="text" class="form-control" ng-model="pin.title" placeholder="Title"/>
   </div>
   <div class="form-group">
     <label>URL of image</label>
-    <input type="text" class="form-control" ng-model="newPin.url" placeholder="URL" />
+    <input type="text" class="form-control" ng-model="pin.url" placeholder="URL" />
   </div>
 
   <button class="btn btn-default" ng-click="savePinToFB()">Submit</button>

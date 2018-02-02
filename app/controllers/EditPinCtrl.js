@@ -1,18 +1,17 @@
 "use strict";
 
 angular.module("PinterestApp")
-.controller("EditPinCtrl", function($scope, PinFactory, $location, $window){
+.controller("EditPinCtrl", function($scope, $routeParams, $location, PinFactory, AuthFactory){
 
+  AuthFactory.getUser()
+  .then(user => {
+    $scope.pid = $routeParams.pid;
+    PinFactory.getOnePin($scope.pid).then(pin => $scope.pin = pin);
+    })
+  .catch(err => $location.path("/login"));
 
-  PinFactory.getOnePin().then(oldPin => {
-    $scope.newPin = oldPin;
-    $scope.title = `Editing "${oldPin.title}"`;
-  });
-
-  $scope.savePinToFB = () => {
-    PinFactory.editPin($scope.newPin)
+  $scope.savePinToFB = () => PinFactory.editPin($scope.newPin)
     .then(data => $location.url(`#!/board/${data.boardid}/pin/${data.id}`));
-  };
 
   $scope.delete = pinid => {
     let deletedPin = $scope.newPin;
