@@ -5,8 +5,8 @@
   <div class="card-panel" ng-repeat="pin in pins">
     <button type="button" name="delete" ng-click="delete(pin.id)">X</button>
     <h3>{{pin.title}}</h3>
-    <a href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
-      <img src="{{pin.url}}">
+    <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
+      <img ng-src="{{pin.url}}">
     </a>
   </div>
 </div>
