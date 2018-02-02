@@ -5,6 +5,19 @@ angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCr
   // TODO: filter by uid
   let getBoardData = () => {
     return $q(function (resolve, reject) {
+      $http.get(`${FBCreds.DBurl}/boards.json?orderBy="uid"&equalTo="${firebase.auth().currentUser.uid}"`)
+        .then(
+        (data) => {
+          resolve(data);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  };
+
+  let getAllBoardData = () => {
+    return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/boards.json`)
         .then(
         (data) => {
@@ -15,6 +28,7 @@ angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCr
         });
     });
   };
+
 
   let addBoard = (board) => {
     return $q(function (resolve, reject) {
