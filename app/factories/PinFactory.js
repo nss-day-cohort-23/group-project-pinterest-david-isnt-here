@@ -59,7 +59,6 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
     return $q(function (resolve, reject) {
       $http.patch(`${FBCreds.DBurl}/pins/${pinObject.id}.json`, JSON.stringify(pinObject))
         .then(({data}) => {
-          console.log('succesful edit in edit function',data);
           resolve(data);
         })
         .catch((err) => {
