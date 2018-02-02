@@ -6,8 +6,11 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
   let getAllPins = () => {
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${$routeParams.bid}"`)
-        .then((pinData) => {
-          resolve(pinData);
+        .then(({data}) => {
+          console.log('data777',data);
+          let keys = Object.keys(data);
+          keys.forEach(key => data[key].id = key);
+          resolve(data);
         })
         .catch((err) => {
           reject(err);
@@ -19,6 +22,8 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/pins/${$routeParams.pid}.json`)
         .then((pinData) => {
+          console.log('pinData in PinFactory',pinData);
+          pinData.id = $routeParams.pid;
           resolve(pinData);
         })
         .catch((err) => {

@@ -10,7 +10,7 @@ angular.module("PinterestApp")
     console.log('thisPin',data);
     $scope.pin = data;
     $scope.title = `${$scope.pin.title}`;
-    console.log('pin',$scope.thisPinToDisplay); 
+    console.log('pin',$scope.pin); 
   });
 
 

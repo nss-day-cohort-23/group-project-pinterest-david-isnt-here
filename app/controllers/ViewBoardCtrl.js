@@ -7,9 +7,8 @@ angular.module("PinterestApp")
   PinFactory.getAllPins()
   .then ((pinData) => {
       console.log('pinData',pinData);
-      let keys = Object.keys(pinData.data);
-      keys.forEach(key => pinData.data[key].id = key);
-      $scope.pins = pinData.data;
+      
+      $scope.pins = pinData;
   });
 
  });
