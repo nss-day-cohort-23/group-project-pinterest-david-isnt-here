@@ -13,6 +13,7 @@ angular.module("PinterestApp")
     PinFactory.editPin($scope.newPin)
     .then((data) => {
       $window.location.href =`#!/board/${data.boardid}/pin/${data.id}`;
+      // TODO: make this locatoin.url????
     });
   };
 

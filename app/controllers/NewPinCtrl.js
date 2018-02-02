@@ -15,6 +15,7 @@ angular.module("PinterestApp")
     PinFactory.addPin($scope.newPin)
     .then((pinResponse)=>{
         // console.log('pinResponsepin',pinResponse);
+        // TODO: make page redirect back to the board
     });
   };
 });
