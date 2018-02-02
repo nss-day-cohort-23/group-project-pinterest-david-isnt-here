@@ -42,7 +42,7 @@ angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCr
 
   let editBoard = (boardid, data) => {
     return $q(function (resolve, reject) {
-      $http.patch(`${FBCreds.DBurl}/boards/${boardid}.json`)
+      $http.patch(`${FBCreds.DBurl}/boards/${boardid}.json`, JSON.stringify(data))
         .then((data) => {
           resolve(data);
         })

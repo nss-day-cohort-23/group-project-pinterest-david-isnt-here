@@ -1,15 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="card-panel" ng-repeat="board in boards">
-      <button type="button" name="delete" ng-click="delete(board.id)">X</button>
-      <a href="#!/board/{{board.id}}"><h1>{{board.title}}</h1></a>
+      <div class="right">
+        <i class="material-icons" ng-click="board.showEditTitle=true">create</i>
+        <button type="button" name="delete" ng-click="delete(board.id)">X</button>
+      </div>
+      <a href="#!/board/{{board.id}}" ng-show="!board.showEditTitle" >
+        <h1>{{board.title}}</h1>
+      </a>
+      <input type="text" ng-model="board.title" ng-show="board.showEditTitle" ng-blur="updateBoardTitle(board)">
     </div>
     <div>
-      <button ng-show="!show" class="btn btn-default" ng-click="show=true" type="button">ADD NEW BOARD</button>
-      <div ng-show="show">
+      <button ng-show="!showAddBoard" class="btn btn-default" ng-click="showAddBoard=true" type="button">ADD NEW BOARD</button>
+      <div ng-show="showAddBoard">
         <input ng-model="newBoard.title" type="text" placeholder="Enter name of your new board">
         <button class="btn btn-default" type="button" ng-click="submitNewBoard()">ADD</button>
-        <button class="btn btn-default" ng-click="show=false" type="button" name="cancel">CANCEL</button>
+        <button class="btn btn-default" ng-click="showAddBoard=false" type="button" name="cancel">CANCEL</button>
       </div>
     </div>
   </div>
