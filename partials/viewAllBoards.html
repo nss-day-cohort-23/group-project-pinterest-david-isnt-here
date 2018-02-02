@@ -4,5 +4,13 @@
       <button type="button" name="delete" ng-click="delete(board.id)">X</button>
       <a href="#!/board/{{board.id}}"><h3>{{board.title}}</h1></a>
     </div>
+    <div>
+      <button ng-show="!show" class="btn btn-default" ng-click="show=true" type="button">ADD NEW BOARD</button>
+      <div ng-show="show">
+        <input ng-model="newBoard.title" type="text" placeholder="Enter name of your new board">
+        <button class="btn btn-default" type="button" ng-click="submitNewBoard()">ADD</button>
+        <button class="btn btn-default" ng-click="show=false" type="button" name="cancel">CANCEL</button>
+      </div>
+    </div>
   </div>
 </div>

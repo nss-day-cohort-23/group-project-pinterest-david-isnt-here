@@ -2,14 +2,30 @@
 
 angular.module("PinterestApp")
 .controller("ViewAllBoardsCtrl", function($scope, $location, AuthFactory, BoardFactory) {
-  AuthFactory.getUser()
-  .then(user => BoardFactory.getAllBoards(user.uid))
-  .then(boardData => $scope.boards = boardData)
-  .catch(err => $location.path('/login'));
+  $scope.show = false;
+  $scope.uid = '';
+  $scope.newBoard = {};
 
-  $scope.delete = boardid => {
-    BoardFactory.deleteBoard(boardid)
-    .then(() => BoardFactory.getAllBoards(firebase.auth().currentUser.uid))
-    .then(boardData => $scope.boards = boardData);
+  const fireGettingAllBoards = uid => BoardFactory.getAllBoards(uid)
+    .then(boardData => $scope.boards = boardData)
+    .catch(err => $location.path('/login'));
+
+  AuthFactory.getUser()
+  .then(user => {
+    $scope.uid = user.uid;
+    fireGettingAllBoards($scope.uid);
+  });
+
+  $scope.delete = boardid => BoardFactory.deleteBoard(boardid)
+    .then(() => fireGettingAllBoards($scope.uid));
+
+  $scope.submitNewBoard = () => {
+    $scope.newBoard.uid = $scope.uid;
+    BoardFactory.addBoard($scope.newBoard)
+    .then(() => fireGettingAllBoards($scope.uid))
+    .then(() => {
+      $scope.newBoard.title = '';
+      $scope.show = false;
+    });
   };
 });
