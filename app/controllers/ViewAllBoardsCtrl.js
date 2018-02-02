@@ -6,7 +6,7 @@ angular.module("PinterestApp")
   $scope.uid = '';
   $scope.newBoard = {};
 
-  const getAllBoards = id => BoardFactory.getAllBoards(id)
+  const fireGettingAllBoards = id => BoardFactory.getAllBoards(id)
     .then(boardData => $scope.boards = boardData)
     .catch(err => $location.path('/login'));
 
@@ -16,16 +16,13 @@ angular.module("PinterestApp")
     getAllBoards($scope.uid);
   });
 
-  $scope.delete = boardid => {
-    BoardFactory.deleteBoard(boardid)
-    .then(() => BoardFactory.getAllBoards($scope.uid))
-    .then(boardData => $scope.boards = boardData);
-  };
+  $scope.delete = boardid => BoardFactory.deleteBoard(boardid)
+    .then(() => fireGettingAllBoards($scope.uid));
 
   $scope.submitNewBoard = () => {
     $scope.newBoard.uid = $scope.uid;
     BoardFactory.addBoard($scope.newBoard)
-    .then(() => getAllBoards($scope.uid))
+    .then(() => fireGettingAllBoards($scope.uid))
     .then(() => {
       $scope.newBoard.title = '';
       $scope.show = false;
