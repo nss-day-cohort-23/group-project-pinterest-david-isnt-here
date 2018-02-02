@@ -10,3 +10,11 @@ body {
         justify-content: space-around;
     }
 }
+
+nav {
+    li {
+        a{
+            white-space: nowrap;
+        }
+    }
+}

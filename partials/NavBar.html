@@ -1,23 +1,16 @@
-<div class="navbar navbar-default">
+<nav>
+    <div class="nav-wrapper deep-purple lighten-2">
+      <a href="#" class="brand-logo">DavidIsntHere</a>
+      <ul id="nav-mobile" class="right hide-on-small">
 
-    <div class="container">
-    
-       <ul class="nav navbar-nav">
-    
-         <li ng-class="{active:isActive('/')}"><a
-         href="#!/">All Boards</a></li>
-    
-         <li ng-class="{active:isActive('#/about')}"><a
-         href="#!/board/:bid/pin/:pid">Pins</a></li>
-    
-         <li ng-class="{active:isActive('#/news')}"><a
-         href="#!/board/:bid/edit">Add Board</a></li>
-    
-         <li ng-class="{active:isActive('#/company')}"><a
-         href="#!/board/:bid/pin/new">Add Pins</a></li>
-    
-       </ul>
-    
+          <li ng-class="{active:isActive('#!/')}"><a
+            href="#!/">All Boards</a></li>
+       
+            <li ng-class="{active:isActive('#!/board/new')}"><a
+            href="#!/board/new">Add Board</a></li>
+
+            <li><a ng-click="logout()">Logout</a></li>
+
+      </ul>
     </div>
-    
-    </div>
+  </nav>
