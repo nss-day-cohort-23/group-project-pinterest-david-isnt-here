@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("PinterestApp")
-.controller("EditPinCtrl", function($scope, $routeParams, PinFactory, $location, $window){
+.controller("EditPinCtrl", function($scope, PinFactory, $location, $window){
 
   
   PinFactory.getOnePin().then(oldPin => {
