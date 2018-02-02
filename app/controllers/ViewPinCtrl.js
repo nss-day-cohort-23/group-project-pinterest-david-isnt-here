@@ -9,7 +9,8 @@ angular.module("PinterestApp")
   .then(({data}) => {
     console.log('thisPin',data);
     $scope.pin = data;
-    $scope.title = `${$scope.pin.title}`;
+    $scope.title = $scope.pin.title;
+    $scope.pin.id = $routeParams.pid;
     console.log('pin',$scope.pin); 
   });
 

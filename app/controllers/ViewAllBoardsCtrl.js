@@ -6,6 +6,5 @@ angular.module("PinterestApp")
     BoardFactory.getBoardData()
         .then((boardData) => {
             $scope.boards = boardData;
-            console.log("is this the data?????", boardData);
         });
 });

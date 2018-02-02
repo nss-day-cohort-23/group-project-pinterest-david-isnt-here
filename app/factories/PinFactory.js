@@ -7,7 +7,6 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${$routeParams.bid}"`)
         .then(({data}) => {
-          console.log('data777',data);
           let keys = Object.keys(data);
           keys.forEach(key => data[key].id = key);
           resolve(data);
@@ -44,9 +43,9 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
     });
   };
 
-  let deletePin = (key) => {
+  let deletePin = (pinId) => {
     return $q(function (resolve, reject) {
-      $http.delete(`${FBCreds.DBurl}/pins/${key}.json`)
+      $http.delete(`${FBCreds.DBurl}/pins/${pinId}.json`)
         .then((data) => {
           resolve(data);
         })
@@ -56,9 +55,9 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
     });
   };
 
-  let editPin = (key, data) => {
+  let editPin = (pinId, data) => {
     return $q(function (resolve, reject) {
-      $http.patch(`${FBCreds.DBurl}/pins/${key}.json`)
+      $http.patch(`${FBCreds.DBurl}/pins/${pinId}.json`)
         .then((data) => {
           resolve(data);
         })

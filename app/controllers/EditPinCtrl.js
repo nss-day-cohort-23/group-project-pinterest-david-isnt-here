@@ -4,7 +4,7 @@ angular.module("PinterestApp")
 .controller("EditPinCtrl", function($scope, $routeParams, PinFactory, $location){
 
   
-  PinFactory.getOnePin($routeParams.pid).then(oldPin => {
+  PinFactory.getOnePin().then(oldPin => {
     $scope.newPin = oldPin;
     $scope.title = `Editing ${oldPin.title}`;
   });

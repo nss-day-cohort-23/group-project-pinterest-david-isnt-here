@@ -37,7 +37,7 @@ angular.module("PinterestApp", ["ngRoute"])
         controller: "ViewPinCtrl"
     })
     .when ("/board/:bid/pin/:pid/edit", {
-        templateUrl: "editAddPin.html",
+        templateUrl: "partials/editAddPin.html",
         controller: "EditPinCtrl"
     })
     .otherwise("/login");

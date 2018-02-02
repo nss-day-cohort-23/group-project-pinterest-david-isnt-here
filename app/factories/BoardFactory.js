@@ -29,9 +29,9 @@ angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCr
     });
   };
 
-  let deleteBoard = (key) => {
+  let deleteBoard = (boardid) => {
     return $q(function (resolve, reject) {
-      $http.delete(`${FBCreds.DBurl}/boards/${key}.json`)
+      $http.delete(`${FBCreds.DBurl}/boards/${boardid}.json`)
         .then((data) => {
           resolve(data);
         })
@@ -41,9 +41,9 @@ angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCr
     });
   };
 
-  let editBoard = (key, data) => {
+  let editBoard = (boardid, data) => {
     return $q(function (resolve, reject) {
-      $http.patch(`${FBCreds.DBurl}/boards/${key}.json`)
+      $http.patch(`${FBCreds.DBurl}/boards/${boardid}.json`)
         .then((data) => {
           resolve(data);
         })
