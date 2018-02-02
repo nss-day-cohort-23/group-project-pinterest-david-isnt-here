@@ -1,8 +1,7 @@
 "use strict";
 
-angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCreds, $routeParams) {
+angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCreds) {
 
-  // filters the pins based on the boardid from routeparams
   let getAllPins = (bid) => {
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${bid}"`)

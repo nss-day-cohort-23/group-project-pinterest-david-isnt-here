@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("PinterestApp").factory("AuthFactory", function ($q, $http, $rootScope, FBCreds) {
+angular.module("PinterestApp").factory("AuthFactory", function ($q, $http, FBCreds) {
   
   //Firebase: Return email, UID for user that is currently logged in.
   let getUser = () => {
