@@ -1,19 +1,20 @@
 "use strict";
 
-angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCreds) {
+angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCreds, AuthFactory, $routeParams) {
 
-  // TODO: filter by uid
   let getAllBoards = () => {
     return $q(function (resolve, reject) {
-      $http.get(`${FBCreds.DBurl}/boards.json?orderBy="uid"&equalTo="${firebase.auth().currentUser.uid}"`)
-        .then(({data}) => {
-          let keys = Object.keys(data);
-          keys.forEach(key => data[key].id = key);
-          resolve(data);
-        })
-        .catch((err) => {
-          reject(err);
-        });
+      AuthFactory.getUser().then(user => {
+        $http.get(`${FBCreds.DBurl}/boards.json?orderBy="uid"&equalTo="${user.uid}"`)
+          .then(({ data }) => {
+            let keys = Object.keys(data);
+            keys.forEach(key => data[key].id = key);
+            resolve(data);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
     });
   };
 
