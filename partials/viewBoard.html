@@ -4,9 +4,9 @@
   <!-- TODO: Need a back button to return to viewAllBoards.html -->
   <div class="card" ng-repeat="pin in pins">
     <div class="card-image">
-      <!-- <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}"> -->
+      <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
         <img ng-src="{{pin.url}}">
-      <!-- </a> -->
+      </a>
       <div class="card-title">
         {{pin.title}}
         <button type="button" name="delete" ng-click="delete(pin.id)">X</button>
