@@ -1,10 +1,10 @@
 "use strict";
 
 angular.module("PinterestApp")
-.controller("EditPinCtrl", function($scope, PinFactory, $location, $window){
+.controller("EditPinCtrl", function($scope, PinFactory, $location, $window, $routeParams){
 
-  
-  PinFactory.getOnePin().then(oldPin => {
+  $scope.pid = $routeParams.pid;
+  PinFactory.getOnePin($scope.pid).then(oldPin => {
     $scope.newPin = oldPin;
     $scope.title = `Editing "${oldPin.title}"`;
   });
