@@ -2,7 +2,7 @@
 
 angular.module("PinterestApp")
 .controller("ViewAllBoardsCtrl", function($scope, $location, AuthFactory, BoardFactory) {
-  $scope.show = false;
+  $scope.showAddBoard = false;
   $scope.uid = '';
   $scope.newBoard = {};
 
@@ -27,5 +27,10 @@ angular.module("PinterestApp")
       $scope.newBoard.title = '';
       $scope.show = false;
     });
+  };
+
+  $scope.updateBoardTitle = ({id, title}) => {
+    BoardFactory.editBoard(id, {title})
+    .then(() => fireGettingAllBoards($scope.uid));
   };
 });
