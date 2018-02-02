@@ -17,8 +17,11 @@ angular.module("PinterestApp").controller("AuthCtrl", function ($scope, AuthFact
     AuthFactory.login($scope.auth)
       .then(response => {
         let user = { "uid": response.uid };
-        AuthFactory.postUser(user);
-        $window.location.href = "/";
+        AuthFactory.postUser(user)
+          .then(response => {
+            $window.location.href = "/";
+          })
+          .catch(err => console.log(err));
       });
   };
 
