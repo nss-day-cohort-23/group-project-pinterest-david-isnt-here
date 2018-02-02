@@ -1,15 +1,17 @@
 "use strict";
 
-angular.module("PinterestApp")
-.controller("ViewPinCtrl", function($scope, $routeParams, PinFactory){
+angular.module("PinterestApp").controller("ViewPinCtrl", function ($scope, $routeParams, PinFactory, AuthFactory, $location) {
+    AuthFactory.getUser()
+      .then(user => {
+        $scope.pid = $routeParams.pid;
+        PinFactory.getOnePin($scope.pid)
+          .then((data) => {
+            $scope.pin = data;
+            $scope.title = $scope.pin.title;
+          });
 
-  PinFactory.getOnePin()
-  .then((data) => {
-    $scope.pin = data;
-    $scope.title = $scope.pin.title;
-    $scope.pin.id = $routeParams.pid;
+      })
+      .catch(err => {
+        $location.path("/login");
+      });
   });
-
-
-
-});

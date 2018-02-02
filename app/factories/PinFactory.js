@@ -1,11 +1,10 @@
 "use strict";
 
-angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCreds, $routeParams) {
+angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCreds) {
 
-  // filters the pins based on the boardid from routeparams
-  let getAllPins = () => {
+  let getAllPins = (bid) => {
     return $q(function (resolve, reject) {
-      $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${$routeParams.bid}"`)
+      $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${bid}"`)
         .then(({data}) => {
           let keys = Object.keys(data);
           keys.forEach(key => data[key].id = key);
@@ -17,11 +16,11 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
     });
   };
 
-  let getOnePin = () => {
+  let getOnePin = (pid) => {
     return $q(function (resolve, reject) {
-      $http.get(`${FBCreds.DBurl}/pins/${$routeParams.pid}.json`)
+      $http.get(`${FBCreds.DBurl}/pins/${pid}.json`)
         .then(({data}) => {
-          data.id = $routeParams.pid;
+          data.id = pid;
           resolve(data);
         })
         .catch((err) => {

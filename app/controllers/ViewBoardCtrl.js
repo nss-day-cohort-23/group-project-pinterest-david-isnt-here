@@ -1,12 +1,18 @@
 "use strict";
 
 angular.module("PinterestApp")
-.controller("ViewBoardCtrl", function($scope, PinFactory, $routeParams){
-  // uses routeParams to get the boardid and search for pins using that boardid
-  PinFactory.getAllPins()
-  .then ((pinData) => {
-      $scope.pins = pinData;
+  .controller("ViewBoardCtrl", function ($scope, PinFactory, $routeParams, $location, AuthFactory) {
+    // TODO: find less janky solution
+    $scope.boardid = $routeParams.bid;
+    AuthFactory.getUser()
+      .then(user => {
+        PinFactory.getAllPins($scope.boardid)
+          .then((pinData) => {
+            $scope.pins = pinData;
+          });
+      })
+      // if no user
+      .catch(err => {
+        $location.path("/login");
+      });
   });
-  // TODO: find less janky solution
-  $scope.boardid = $routeParams.bid;
- });

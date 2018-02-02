@@ -2,11 +2,10 @@
 
 angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCreds) {
 
-  // TODO: filter by uid
-  let getAllBoards = () => {
+  let getAllBoards = (uid) => {
     return $q(function (resolve, reject) {
-      $http.get(`${FBCreds.DBurl}/boards.json?orderBy="uid"&equalTo="${firebase.auth().currentUser.uid}"`)
-        .then(({data}) => {
+      $http.get(`${FBCreds.DBurl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
+        .then(({ data }) => {
           let keys = Object.keys(data);
           keys.forEach(key => data[key].id = key);
           resolve(data);
