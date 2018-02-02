@@ -10,13 +10,13 @@ angular.module("PinterestApp")
     })
   .catch(err => $location.path("/login"));
 
-  $scope.savePinToFB = () => PinFactory.editPin($scope.newPin)
-    .then(data => $location.url(`#!/board/${data.boardid}/pin/${data.id}`));
+  $scope.savePinToFB = () => PinFactory.editPin($scope.pin)
+    .then(data => $location.path(`/board/${data.boardid}/pin/${$scope.pid}`));
 
   $scope.delete = pinid => {
-    let deletedPin = $scope.newPin;
+    let deletedPin = $scope.pin;
     PinFactory.deletePin(pinid)
-    .then(() => $location.url(`/board/${deletedPin.boardid}`));
+    .then(() => $location.path(`/board/${deletedPin.boardid}`));
   };
 
 });
