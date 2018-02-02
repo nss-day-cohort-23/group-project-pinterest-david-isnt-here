@@ -6,6 +6,7 @@ angular.module("PinterestApp")
   // uses routeParams to get the boardid and search for pins using that boardid
   PinFactory.getAllPins()
   .then ((pinData) => {
+      console.log('pinData',pinData);
       let keys = Object.keys(pinData.data);
       keys.forEach(key => pinData.data[key].id = key);
       $scope.pins = pinData.data;
