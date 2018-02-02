@@ -20,10 +20,10 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
   let getOnePin = () => {
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/pins/${$routeParams.pid}.json`)
-        .then((pinData) => {
-          console.log('pinData in PinFactory',pinData);
-          pinData.id = $routeParams.pid;
-          resolve(pinData);
+        .then(({data}) => {
+          data.id = $routeParams.pid;
+          console.log('data in getOnePin',data);
+          resolve(data);
         })
         .catch((err) => {
           reject(err);
@@ -55,10 +55,11 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
     });
   };
 
-  let editPin = (pinId, data) => {
+  let editPin = (pinObject) => {
     return $q(function (resolve, reject) {
-      $http.patch(`${FBCreds.DBurl}/pins/${pinId}.json`)
-        .then((data) => {
+      $http.patch(`${FBCreds.DBurl}/pins/${pinObject.id}.json`, JSON.stringify(pinObject))
+        .then(({data}) => {
+          console.log('succesful edit in edit function',data);
           resolve(data);
         })
         .catch((err) => {
