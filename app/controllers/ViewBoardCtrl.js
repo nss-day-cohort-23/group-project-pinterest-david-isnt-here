@@ -1,20 +1,12 @@
 "use strict";
 
-angular.module("PinterestApp").controller("ViewBoardCtrl", function($scope, BoardFactory, $routeParams, PinFactory){
-
-// BoardFactory.getBoardData()
-// .then ((boardData) => {
-//     console.log("is this the data?", boardData);
-//     // $scope.boardData = boardData.data;
-//     $scope.boardArray = Object.entries(boardData.data);
-
-//     return PinFactory.getPinData();
-// })
-// .then((pinData) => {
-//     console.log("pin data?", pinData);
-//     $scope.pinArray = Object.entries(pinData.data);
-    
-// });
-
-
+angular.module("PinterestApp")
+.controller("ViewBoardCtrl", function($scope, PinFactory, $routeParams){
+  // uses routeParams to get the boardid and search for pins using that boardid
+  PinFactory.getAllPins()
+  .then ((pinData) => {
+      $scope.pins = pinData;
+  });
+  // TODO: find less janky solution
+  $scope.boardid = $routeParams.bid;
  });
