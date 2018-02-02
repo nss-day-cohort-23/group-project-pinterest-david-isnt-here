@@ -2,7 +2,7 @@
 
 angular.module('PinterestApp')
 
-.directive('simpleNavbar', function () {
+.directive('davidIsntHere', function () {
    return {
      restrict: 'E',
      templateUrl: 'app/navbar/navbar.html',
