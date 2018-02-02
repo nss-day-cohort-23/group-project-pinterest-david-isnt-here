@@ -27,13 +27,13 @@ angular.module("PinterestApp", ["ngRoute"])
         templateUrl: "partials/editAddBoard.html",
         controller: "EditBoardCtrl"
     })
-    .when ("/board/:bid/pin/:pid/new", {
-        templateUrl: "partials/editAddPin.html",
-        controller: "NewPinCtrl"
-    })
     .when ("/board/:bid/pin/:pid", {
         templateUrl: "partials/viewPin.html",
         controller: "ViewPinCtrl"
+    })
+    .when ("/board/:bid/pin/new", {
+        templateUrl: "partials/editAddPin.html",
+        controller: "NewPinCtrl"
     })
     .when ("/board/:bid/pin/:pid/edit", {
         templateUrl: "editAddPin.html",

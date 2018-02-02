@@ -2,8 +2,7 @@
 
 angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCreds, $routeParams) {
 
-  // TODO: filter by uid
-  // filter by board we are selecting
+  // filters the pins based on the boardid from routeparams
   let getPinData = () => {
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${$routeParams.bid}"`)
@@ -17,12 +16,12 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
     });
   };
 
-  let addPin = (pin) => {
+  let addPin = (newPin) => {
     return $q(function (resolve, reject) {
-      $http.post(`${FBCreds.DBurl}/pins.json`, JSON.stringify(pin))
-        .then(
-        (data) => {
-          resolve(data);
+      $http.post(`${FBCreds.DBurl}/pins.json`, JSON.stringify(newPin))
+        .then((newPinDataResponse) => {
+          console.log('newPindata',newPinDataResponse);
+          resolve(newPinDataResponse);
         })
         .catch((err) => {
           reject(err);
