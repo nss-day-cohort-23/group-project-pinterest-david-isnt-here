@@ -6,7 +6,7 @@ angular.module("PinterestApp")
   $scope.uid = '';
   $scope.newBoard = {};
 
-  const fireGettingAllBoards = id => BoardFactory.getAllBoards(id)
+  const fireGettingAllBoards = uid => BoardFactory.getAllBoards(uid)
     .then(boardData => $scope.boards = boardData)
     .catch(err => $location.path('/login'));
 
