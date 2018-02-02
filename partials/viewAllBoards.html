@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row">
+  <div class="row masonry-container">
     <div class="card-panel" ng-repeat="board in boards">
       <button type="button" name="delete" ng-click="delete(board.id)">X</button>
-      <a href="#!/board/{{board.id}}"><h1>{{board.title}}</h1></a>
+      <a href="#!/board/{{board.id}}"><h3>{{board.title}}</h1></a>
     </div>
   </div>
 </div>

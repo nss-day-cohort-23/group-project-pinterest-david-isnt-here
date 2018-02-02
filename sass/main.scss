@@ -13,8 +13,16 @@ body {
 
 nav {
     li {
-        a{
+        a {
             white-space: nowrap;
         }
+    }
+}
+
+.masonry-container {
+    column-break-inside: avoid;
+    .card-panel {
+        display: inline-block;
+        overflow: visible;
     }
 }
