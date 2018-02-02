@@ -13,7 +13,7 @@ angular.module("PinterestApp")
   AuthFactory.getUser()
   .then(user => {
     $scope.uid = user.uid;
-    getAllBoards($scope.uid);
+    fireGettingAllBoards($scope.uid);
   });
 
   $scope.delete = boardid => BoardFactory.deleteBoard(boardid)
