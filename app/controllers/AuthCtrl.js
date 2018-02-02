@@ -25,10 +25,4 @@ angular.module("PinterestApp").controller("AuthCtrl", function ($scope, AuthFact
       });
   };
 
-  $scope.logout = () => {
-    AuthFactory.logout()
-      .then(() => {
-        $scope.auth = {};
-      });
-  };
 });
