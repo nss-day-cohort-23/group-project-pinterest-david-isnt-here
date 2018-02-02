@@ -3,7 +3,19 @@
 angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCreds, $routeParams) {
 
   // filters the pins based on the boardid from routeparams
-  let getPinData = () => {
+  let getAllPins = () => {
+    return $q(function (resolve, reject) {
+      $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${$routeParams.bid}"`)
+        .then((pinData) => {
+          resolve(pinData);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  };
+
+  let getOnePin = () => {
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${$routeParams.bid}"`)
         .then((pinData) => {
@@ -50,5 +62,5 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
         });
     });
   };
-  return { getPinData, addPin, deletePin, editPin };
+  return { getAllPins, addPin, deletePin, editPin };
 });

@@ -9,7 +9,7 @@ angular.module("PinterestApp")
 
   // adds the current users uid and the boardid (from routeParams) 
   // onto the newPin object before posting
-  $scope.saveNewPinToFB = () =>{
+  $scope.savePinToFB = () =>{
     $scope.newPin.uid = firebase.auth().currentUser.uid;
     $scope.newPin.boardid = $routeParams.bid;
     PinFactory.addPin($scope.newPin)
