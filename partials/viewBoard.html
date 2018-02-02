@@ -3,18 +3,17 @@
 <div class="container masonry-container">
   <!-- TODO: Need a back button to return to viewAllBoards.html -->
   <div class="card" ng-repeat="pin in pins">
-    <div class="card-image">
+    <div ng-mouseover="hoverOver = true" ng-mouseleave="hoverOver = false" class="card-image">
       <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
         <img ng-src="{{pin.url}}">
       </a>
       <div class="card-title">
         {{pin.title}}
-        <button type="button" name="delete" ng-click="delete(pin.id)">X</button>
+        <button ng-show="hoverOver" type="button" name="delete" ng-click="delete(pin.id)">X</button>
       </div>
     </div>
   </div>
 </div>
 
-ng-show="hoverOver"
-ng-mouseleave="hoverOver = false"
-ng-mouseover="hoverOver = true"
+
+
