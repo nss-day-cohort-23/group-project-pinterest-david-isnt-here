@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("PinterestApp")
-.controller("NewPinCtrl", function($scope, $q, $http, $routeParams, PinFactory){
+.controller("NewPinCtrl", function($scope, $routeParams, PinFactory){
 
   $scope.newPin = {};
   $scope.newPin.title = "";
