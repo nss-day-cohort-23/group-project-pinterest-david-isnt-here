@@ -22,7 +22,6 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
       $http.get(`${FBCreds.DBurl}/pins/${$routeParams.pid}.json`)
         .then(({data}) => {
           data.id = $routeParams.pid;
-          console.log('data in getOnePin',data);
           resolve(data);
         })
         .catch((err) => {

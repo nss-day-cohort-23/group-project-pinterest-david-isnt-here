@@ -12,7 +12,6 @@ angular.module("PinterestApp")
   $scope.savePinToFB = () => {
     PinFactory.editPin($scope.newPin)
     .then((data) => {
-      console.log('data',data);
       $window.location.href =`#!/board/${data.boardid}/pin/${data.id}`;
     });
   };
