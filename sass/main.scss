@@ -1,0 +1,12 @@
+body {
+    background: #f0f0f0;
+}
+
+#login {
+    margin: 5rem auto;
+    max-width: 50rem;
+    #buttons {
+        display: flex;
+        justify-content: space-around;
+    }
+}
