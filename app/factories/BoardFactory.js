@@ -7,6 +7,7 @@ angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCr
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/boards.json?orderBy="uid"&equalTo="${firebase.auth().currentUser.uid}"`)
         .then((data) => {
+          
           resolve(data);
         })
         .catch((err) => {

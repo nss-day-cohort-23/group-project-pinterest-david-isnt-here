@@ -7,10 +7,7 @@ angular.module("PinterestApp", ["ngRoute"])
 
     // routes and configs go here, chained onto the module definition
     
-    .when ("/board/:bid/pin/:pid", {
-        templateUrl: "partials/viewPin.html",
-        controller: "ViewPinCtrl"
-    })
+    
     .when("/login", {
         templateUrl: "partials/loginRegister.html",
         controller: "AuthCtrl"
@@ -34,6 +31,10 @@ angular.module("PinterestApp", ["ngRoute"])
     .when ("/board/:bid/pin/new", {
         templateUrl: "partials/editAddPin.html",
         controller: "NewPinCtrl"
+    })
+    .when ("/board/:bid/pin/:pid", {
+        templateUrl: "partials/viewPin.html",
+        controller: "ViewPinCtrl"
     })
     .when ("/board/:bid/pin/:pid/edit", {
         templateUrl: "editAddPin.html",

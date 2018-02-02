@@ -17,7 +17,7 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
 
   let getOnePin = () => {
     return $q(function (resolve, reject) {
-      $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${$routeParams.bid}"`)
+      $http.get(`${FBCreds.DBurl}/pins/${$routeParams.pid}.json`)
         .then((pinData) => {
           resolve(pinData);
         })
@@ -62,5 +62,5 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
         });
     });
   };
-  return { getAllPins, addPin, deletePin, editPin };
+  return { getAllPins, addPin, deletePin, editPin, getOnePin };
 });
