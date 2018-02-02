@@ -3,17 +3,17 @@
 angular.module("PinterestApp")
 .controller("NewPinCtrl", function($scope, $routeParams, PinFactory, AuthFactory, $location){
 
-  $scope.newPin = {};
-  $scope.newPin.title = "";
-  $scope.newPin.url = "";
+  $scope.pin = {};
+  $scope.pin.title = "";
+  $scope.pin.url = "";
 
   // adds the current users uid and the boardid (from routeParams) 
   // onto the newPin object before posting
   $scope.savePinToFB = () =>{
     AuthFactory.getUser().then(user => {
-      $scope.newPin.ud = user.uid;
-      $scope.newPin.boardid = $routeParams.bid;
-      return PinFactory.addPin($scope.newPin);
+      $scope.pin.ud = user.uid;
+      $scope.pin.boardid = $routeParams.bid;
+      return PinFactory.addPin($scope.pin);
     })
       .then((pinResponse)=>{
         $location.path(`/board/${$routeParams.bid}`);
