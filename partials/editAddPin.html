@@ -1,5 +1,5 @@
 <div class="col-xs-12">
-    <h1>{{title}} Todo</h1>
+    <h1 ng-show="newPin.title">{{title}}</h1>
     <div class="form-group">
       <label>Title of new pin</label>
       <input type="text" class="form-control" ng-model="newPin.title" placeholder="Title"/>
@@ -9,5 +9,5 @@
       <input type="text" class="form-control" ng-model="newPin.url" placeholder="URL" />
     </div>
 
-    <button class="btn btn-default" ng-click="addPin(newPin)">Submit</button>
+    <button class="btn btn-default" ng-click="saveNewPinToFB()">Submit</button>
   </div>
