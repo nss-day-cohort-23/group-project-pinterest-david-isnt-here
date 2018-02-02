@@ -3,9 +3,9 @@
   <!-- TODO: Need a back button to return to viewAllBoards.html -->
   <a ng-href="#!/board/{{boardid}}/pin/new">Add a PIN</a>
   <div class="card-panel" ng-repeat="pin in pins">
-    <button type="button" name="delete" ng-click="delete(pin.id)">X</button>
+    <button type="button" ng-show="hoverOver" name="delete" ng-click="delete(pin.id)">X</button>
     <h3>{{pin.title}}</h3>
-    <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
+    <a ng-mouseover="hoverOver = true" ng-mouseleave="hoverOver = false" ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
       <img ng-src="{{pin.url}}">
     </a>
   </div>
