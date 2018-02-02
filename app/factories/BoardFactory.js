@@ -3,7 +3,7 @@
 angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCreds) {
 
   // TODO: filter by uid
-  let getBoardData = () => {
+  let getAllBoards = () => {
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/boards.json?orderBy="uid"&equalTo="${firebase.auth().currentUser.uid}"`)
         .then(({data}) => {
@@ -52,5 +52,5 @@ angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCr
         });
     });
   };
-  return { getBoardData, addBoard, deleteBoard, editBoard };
+  return { getAllBoards, addBoard, deleteBoard, editBoard };
 });

@@ -3,7 +3,7 @@
 angular.module("PinterestApp")
 .controller("ViewAllBoardsCtrl", function($scope, BoardFactory){
 
-    BoardFactory.getBoardData()
+    BoardFactory.getAllBoards()
         .then((boardData) => {
             $scope.boards = boardData;
         });
