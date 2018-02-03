@@ -9,15 +9,16 @@
   <div class="card" ng-repeat="pin in pins">
     <div ng-mouseover="hoverOver = true" ng-mouseleave="hoverOver = false" class="card-image">
       <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
-        <!-- <div><a ng-show="hoverOver" class="waves-effect waves-light red darken-3 btn">X</a></div> -->
         <img ng-src="{{pin.url}}">
       </a>
       <div class="delete-button" >
+        <a  class="btn-floating fab waves-effect waves-light red darken-3" ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}/edit" ng-show="hoverOver">
+          <i class="material-icons small">create</i>
+        </a>
         <a  class="btn-floating fab waves-effect waves-light red darken-3" ng-click="delete(pin.id)" ng-show="hoverOver"><i class="material-icons small">delete</i></a>
       </div>
       <div class="card-title" >
         {{pin.title}}
-        <!-- <button ng-show="hoverOver" type="button" name="delete" ng-click="delete(pin.id)">X</button> -->
       </div>
 
     </div>

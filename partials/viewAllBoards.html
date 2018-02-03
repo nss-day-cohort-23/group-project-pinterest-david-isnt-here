@@ -21,19 +21,11 @@
               </a>
             </div>
           </div>
-          <!-- <div class="delete-button" >
-            <a  class="btn-floating fab waves-effect waves-light red darken-3" ng-click="delete(pin.id)" ng-show="hoverOver">
-              <i class="material-icons small">delete</i>
-            </a>
-          </div> -->
         <a href="#!/board/{{board.id}}">
           <h3 ng-show="!board.showEditTitle">{{board.title}}</h3>
         </a>
         <input type="text" ng-model="board.title" ng-show="board.showEditTitle" ng-blur="updateBoardTitle(board)">
-
-
         </div>
-
       </div>
     </div>
   </div>
