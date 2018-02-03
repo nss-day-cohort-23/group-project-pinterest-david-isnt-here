@@ -1,12 +1,12 @@
-<div class="container">
-  <div>
-    <button ng-show="!showAddBoard" class="btn btn-default" ng-click="showAddBoard=true" type="button">ADD NEW BOARD</button>
-    <div ng-show="showAddBoard">
-      <input ng-model="newBoard.title" type="text" placeholder="Enter name of your new board">
-      <button class="btn btn-default" type="button" ng-click="submitNewBoard()">ADD</button>
-      <button class="btn btn-default" ng-click="showAddBoard=false" type="button" name="cancel">CANCEL</button>
-    </div>
+<div class="add-new-button-div">
+  <button ng-show="!showAddBoard" class="btn btn-default add-new-button" ng-click="showAddBoard=true" type="button">ADD NEW BOARD</button>
+  <div class = 'add-new-button' ng-show="showAddBoard">
+    <input ng-model="newBoard.title" type="text" placeholder="Enter name of your new board">
+    <button class="btn btn-default" type="button" ng-click="submitNewBoard()">ADD</button>
+    <button class="btn btn-default" ng-click="showAddBoard=false" type="button" name="cancel">CANCEL</button>
   </div>
+</div>
+<div class="container">
   <div class="row">
     <div class="col s12 masonry-container">
       <div class="card" ng-repeat="board in boards" >
