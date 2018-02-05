@@ -6,7 +6,7 @@ angular.module("PinterestApp")
   AuthFactory.getUser()
   .then(user => {
     $scope.pid = $routeParams.pid;
-    PinFactory.getOnePin($scope.pid).then(pin => $scope.pin = pin);
+    PinFactory.getOnePin($scope.pid).then(pin => {$scope.pin = pin;  });
     })
   .catch(err => $location.path("/login"));
 

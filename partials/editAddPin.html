@@ -6,7 +6,7 @@
 <div class="container">
   <div class="card-panel">
     <!-- TODO: Need a back button so user can return to board if changed their mind about editing/adding. This will be a conditional. IF editing a pin, return to viewPin.html. IF adding a pin, return to viewBoard.html -->
-    <h1 ng-show="pin.title">Editing "{{pin.title}}"</h1>
+    <h1 ng-show="pin.title">{{pin.title}}</h1>
     <div class="form-group">
       <label>Title of new pin</label>
       <input type="text" class="form-control" ng-model="pin.title" placeholder="Title" />
