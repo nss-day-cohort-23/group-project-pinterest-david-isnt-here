@@ -1,7 +1,9 @@
-<div class="edit container">
+<div class="add-new-button-div">
   <a ng-href="#!/board/{{pin.boardid}}">
-    <button class="btn btn-default deep-purple lighten-2" type="button">BACK TO BOARD</button>
+    <button class="btn btn-default deep-purple lighten-2 add-new-button" type="button">BACK TO BOARD</button>
   </a>
+</div>
+<div class="edit container">
   <div class="card-panel">
     <button class="btn btn-default" ng-click="delete(pin.id)" type="button">DELETE</button>
 
@@ -9,6 +11,6 @@
       <button class="btn btn-default red darken-3" type="button">EDIT</button>
     </a>
     <h3>{{pin.title}}</h3>
-    <img ng-src={{pin.url}}>
+    <img class="make-image-good" ng-src={{pin.url}}>
   </div>
 </div>
