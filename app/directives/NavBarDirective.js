@@ -6,6 +6,6 @@ angular.module('PinterestApp')
    return {
      restrict: 'E',
      templateUrl: 'partials/NavBar.html',
-    controller: 'NavBarCtrl',
+    controller: 'NavBarCtrl'
    };
 });
