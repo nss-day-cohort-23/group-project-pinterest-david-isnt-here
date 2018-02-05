@@ -2,20 +2,12 @@
 
 angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCreds) {
 
-  let getBoardName = (dataArray)=>{
-    dataArray = Object.values(dataArray);
-    let boardid = dataArray[0].boardid;
+  let getBoardName = (boardid)=>{
     return $q((resolve, reject)=>{
-      $http.get(`${FBCreds.DBurl}/boards.json`)
+      $http.get(`${FBCreds.DBurl}/boards/${boardid}.json`)
       .then(({data}) => {
-        let keys = Object.keys(data);
-        keys.forEach(key => data[key].boardid = key);
-        let newData = Object.values(data);
-        newData.forEach(board=>{
-          if(board.boardid === boardid){
-            resolve(board);
-          }
-        });
+        console.log('data',data);
+        resolve(data);
       })
       .catch((err) => {
         reject(err);
