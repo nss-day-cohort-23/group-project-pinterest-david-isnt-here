@@ -85,5 +85,24 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
         });
     });
   };
-  return { getAllPins, addPin, deletePin, editPin, getOnePin, getBoardName };
+
+  let deleteBoardPins = bid => {
+    return $q((resolve, reject) => {
+      getAllPins(bid)
+        .then(response => {
+          let pinKeys = Object.keys(response);
+          let deletePromises = pinKeys.map(key => {
+            return deletePin(key);
+          });
+          Promise.all()
+            .then(response => {
+              resolve("all deleted");
+            })
+            .catch(err => resolve(err));
+        })
+        .catch(err => console.log());
+    });
+  };
+
+  return { getAllPins, addPin, deletePin, editPin, getOnePin, deleteBoardPins, getBoardName };
 });

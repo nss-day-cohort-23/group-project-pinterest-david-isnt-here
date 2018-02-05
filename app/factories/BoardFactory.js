@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCreds) {
+angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCreds, PinFactory) {
 
   let getAllBoards = (uid) => {
     return $q(function (resolve, reject) {
@@ -32,7 +32,9 @@ angular.module("PinterestApp").factory("BoardFactory", function ($q, $http, FBCr
     return $q(function (resolve, reject) {
       $http.delete(`${FBCreds.DBurl}/boards/${boardid}.json`)
         .then((data) => {
-          resolve(data);
+          PinFactory.deleteBoardPins(boardid)
+            .then(response => resolve(response))
+            .catch(err => reject(err));
         })
         .catch((err) => {
           reject(err);
