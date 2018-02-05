@@ -48,12 +48,19 @@ nav {
 }
 
 .add-new-button{
-    margin: .8rem auto;
+    margin: .5rem auto;
     display: block;
 }
 
 .add-new-button-div{
     width: 100%;
+}
+
+div.board-title{
+    width: fit-content;
+    margin: auto;
+    display: block;
+    font-size: 3em;
 }
 
 .delete-button{
@@ -62,4 +69,9 @@ nav {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+
+.make-image-good{
+    max-width: 100%;
 }

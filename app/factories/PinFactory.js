@@ -2,6 +2,27 @@
 
 angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCreds) {
 
+  let getBoardName = (dataArray)=>{
+    dataArray = Object.values(dataArray);
+    let boardid = dataArray[0].boardid;
+    return $q((resolve, reject)=>{
+      $http.get(`${FBCreds.DBurl}/boards.json`)
+      .then(({data}) => {
+        let keys = Object.keys(data);
+        keys.forEach(key => data[key].boardid = key);
+        let newData = Object.values(data);
+        newData.forEach(board=>{
+          if(board.boardid === boardid){
+            resolve(board);
+          }
+        });
+      })
+      .catch((err) => {
+        reject(err);
+      });
+    });
+  };
+
   let getAllPins = (bid) => {
     return $q(function (resolve, reject) {
       $http.get(`${FBCreds.DBurl}/pins.json?orderBy="boardid"&equalTo="${bid}"`)
@@ -64,5 +85,5 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
         });
     });
   };
-  return { getAllPins, addPin, deletePin, editPin, getOnePin };
+  return { getAllPins, addPin, deletePin, editPin, getOnePin, getBoardName };
 });
