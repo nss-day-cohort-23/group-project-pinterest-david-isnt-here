@@ -1,9 +1,13 @@
-<a ng-href="#!/board/{{pin.boardid}}">BACK TO ALL PINS</a>
+<a ng-href="#!/board/{{pin.boardid}}">
+  <button class="btn btn-default deep-purple lighten-2" type="button">BACK TO BOARD</button>
+</a>
 <div class="card-panel">
-  <button type="button" name="delete" ng-click="delete(pin.id)">X</button>
+  <!-- <button type="button" name="delete" ng-click="delete(pin.id)">X</button> -->
+  <button class="btn btn-default" ng-click="delete(pin.id)" type="button">DELETE</button>
+
+  <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}/edit">
+    <button class="btn btn-default red darken-3" type="button">EDIT</button>
+  </a>
   <h3>{{pin.title}}</h3>
   <img ng-src={{pin.url}}>
-  <button>
-    <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}/edit">EDIT THIS PIN</a>
-  </button>
 </div>

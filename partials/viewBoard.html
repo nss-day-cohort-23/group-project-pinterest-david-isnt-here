@@ -1,12 +1,29 @@
 
-<div class="container">
-  <!-- TODO: Need a back button to return to viewAllBoards.html -->
-  <a ng-href="#!/board/{{boardid}}/pin/new">Add a PIN</a>
-  <div class="card-panel" ng-repeat="pin in pins">
-    <button type="button" name="delete" ng-click="delete(pin.id)">X</button>
-    <h3>{{pin.title}}</h3>
-    <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
-      <img ng-src="{{pin.url}}">
+  <div class="add-new-button-div">
+    <a ng-href="#!/board/{{boardid}}/pin/new">
+      <button ng-show="!showAddBoard" class="btn btn-default add-new-button" type="button">ADD NEW PIN</button>
     </a>
   </div>
+<div class="container masonry-container">
+  <!-- TODO: Need a back button to return to viewAllBoards.html -->
+  <div class="card" ng-repeat="pin in pins">
+    <div ng-mouseover="hoverOver = true" ng-mouseleave="hoverOver = false" class="card-image">
+      <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}">
+        <img ng-src="{{pin.url}}">
+      </a>
+      <div class="delete-button" >
+        <a  class="btn-floating fab waves-effect waves-light red darken-3" ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}/edit" ng-show="hoverOver">
+          <i class="material-icons small">create</i>
+        </a>
+        <a  class="btn-floating fab waves-effect waves-light red darken-3" ng-click="delete(pin.id)" ng-show="hoverOver"><i class="material-icons small">delete</i></a>
+      </div>
+      <div class="card-title" >
+        {{pin.title}}
+      </div>
+
+    </div>
+  </div>
 </div>
+
+
+

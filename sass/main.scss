@@ -13,8 +13,53 @@ body {
 
 nav {
     li {
-        a{
+        a {
             white-space: nowrap;
         }
     }
+}
+
+.container {
+    padding: 2rem 0;
+}
+
+.masonry-container {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    column-break-inside: avoid;
+
+    .card {
+        display: inline-block;
+        overflow: visible;
+        width: 100%;
+        margin-bottom: .3rem;
+        min-height: 4rem;
+        h3 {
+            font-size: 1.5rem;
+            padding: 4rem 3rem 4rem 3rem;
+            margin: 0 !important;
+        }
+        img {
+            max-width: 100%;
+        }
+    }
+    
+}
+
+.add-new-button{
+    margin: .8rem auto;
+    display: block;
+}
+
+.add-new-button-div{
+    width: 100%;
+}
+
+.delete-button{
+    margin-right: 14px;  
+    margin-top: 14px;  
+    position: absolute;
+    top: 0;
+    right: 0;
 }
