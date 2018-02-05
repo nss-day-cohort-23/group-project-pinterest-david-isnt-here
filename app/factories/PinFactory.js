@@ -92,7 +92,7 @@ angular.module("PinterestApp").factory("PinFactory", function ($q, $http, FBCred
             })
             .catch(err => resolve(err));
         })
-        .catch(err => console.log());
+        .catch(err => console.log(err));
     });
   };
 

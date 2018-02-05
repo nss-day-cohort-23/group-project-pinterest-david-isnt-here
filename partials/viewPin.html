@@ -5,10 +5,10 @@
 </div>
 <div class="edit container">
   <div class="card-panel">
-    <button class="btn btn-default" ng-click="delete(pin.id)" type="button">DELETE</button>
+    <button class="btn btn-default red darken-3" ng-click="delete(pin.id)" type="button">DELETE</button>
 
     <a ng-href="#!/board/{{pin.boardid}}/pin/{{pin.id}}/edit">
-      <button class="btn btn-default red darken-3" type="button">EDIT</button>
+      <button class="btn btn-default " type="button">EDIT</button>
     </a>
     <h3>{{pin.title}}</h3>
     <img class="make-image-good" ng-src={{pin.url}}>
